@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.34](https://github.com/k8sgpt-ai/k8sgpt/compare/v0.4.33...v0.4.34) (2026-05-20)
+
+
+### Features
+
+* add Anthropic API support ([#1652](https://github.com/k8sgpt-ai/k8sgpt/issues/1652)) ([1c4e77a](https://github.com/k8sgpt-ai/k8sgpt/commit/1c4e77a55e05a6bc7ea6a4eb17fd7e81db0d273a))
+
 ## [0.4.33](https://github.com/k8sgpt-ai/k8sgpt/compare/v0.4.32...v0.4.33) (2026-05-13)
 
 
