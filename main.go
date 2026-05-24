@@ -17,6 +17,7 @@ limitations under the License.
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/k8sgpt-ai/k8sgpt/cmd"
@@ -24,6 +25,8 @@ import (
 
 func main() {
 	if err := cmd.RootCmd.Execute(); err != nil {
+		// Print the error to stderr before exiting so it's visible in logs
+		fmt.Fprintln(os.Stderr, "Error:", err)
 		os.Exit(1)
 	}
 }
