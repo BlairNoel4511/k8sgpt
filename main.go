@@ -25,26 +25,10 @@ import (
 
 func main() {
 	if err := cmd.RootCmd.Execute(); err != nil {
-		// Print the error to stderr before exiting so it's visible in logs
+		// Print the error to stderr before exiting so it's visible in logs.
+		// Note: cobra already prints most errors itself, but we print here
+		// as a safety net for any errors it doesn't handle.
 		fmt.Fprintln(os.Stderr, "Error:", err)
-		// Use exit code 1 (standard Unix convention for general errors)
-		// rather than 2, which is typically reserved for misuse of shell builtins
-		//
-		// NOTE: Some CI environments capture stderr separately; printing to
-		// stderr here ensures the error message isn't swallowed when stdout
-		// is redirected to a file or pipe.
-		//
-		// Personal note: also useful to wrap this with a logger later if
-		// structured logging (e.g. zap/logrus) is added project-wide.
-		//
-		// TODO(me): consider using os.Exit(2) specifically for cobra flag
-		// parse errors once cobra exposes a way to distinguish them from
-		// runtime errors — for now exit(1) is the safe, consistent choice.
-		//
-		// Personal note: printing the program name alongside the error makes
-		// it easier to identify the source when multiple tools are chained
-		// together in a shell script (e.g. k8sgpt | tee output.log).
-		fmt.Fprintf(os.Stderr, "(%s exited with error)\n", os.Args[0])
 		os.Exit(1)
 	}
 }
