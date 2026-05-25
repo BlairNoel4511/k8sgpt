@@ -27,7 +27,8 @@ func main() {
 	if err := cmd.RootCmd.Execute(); err != nil {
 		// Print the error to stderr before exiting so it's visible in logs
 		fmt.Fprintln(os.Stderr, "Error:", err)
-		// Use exit code 2 to distinguish command errors from other failures
-		os.Exit(2)
+		// Use exit code 1 (standard Unix convention for general errors)
+		// rather than 2, which is typically reserved for misuse of shell builtins
+		os.Exit(1)
 	}
 }
