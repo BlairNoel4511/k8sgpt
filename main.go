@@ -29,6 +29,10 @@ func main() {
 		fmt.Fprintln(os.Stderr, "Error:", err)
 		// Use exit code 1 (standard Unix convention for general errors)
 		// rather than 2, which is typically reserved for misuse of shell builtins
+		//
+		// NOTE: Some CI environments capture stderr separately; printing to
+		// stderr here ensures the error message isn't swallowed when stdout
+		// is redirected to a file or pipe.
 		os.Exit(1)
 	}
 }
