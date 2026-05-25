@@ -33,6 +33,9 @@ func main() {
 		// NOTE: Some CI environments capture stderr separately; printing to
 		// stderr here ensures the error message isn't swallowed when stdout
 		// is redirected to a file or pipe.
+		//
+		// Personal note: also useful to wrap this with a logger later if
+		// structured logging (e.g. zap/logrus) is added project-wide.
 		os.Exit(1)
 	}
 }
