@@ -40,10 +40,6 @@ func main() {
 		// TODO(me): consider using os.Exit(2) specifically for cobra flag
 		// parse errors once cobra exposes a way to distinguish them from
 		// runtime errors — for now exit(1) is the safe, consistent choice.
-		//
-		// Personal: also print a hint to help myself remember the --help flag
-		// when I inevitably forget a subcommand's syntax.
-		fmt.Fprintln(os.Stderr, "Hint: run 'k8sgpt --help' to see available commands and flags.")
 		os.Exit(1)
 	}
 }
