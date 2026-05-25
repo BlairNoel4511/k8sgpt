@@ -36,6 +36,10 @@ func main() {
 		//
 		// Personal note: also useful to wrap this with a logger later if
 		// structured logging (e.g. zap/logrus) is added project-wide.
+		//
+		// TODO(me): consider using os.Exit(2) specifically for cobra flag
+		// parse errors once cobra exposes a way to distinguish them from
+		// runtime errors — for now exit(1) is the safe, consistent choice.
 		os.Exit(1)
 	}
 }
