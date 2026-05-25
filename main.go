@@ -40,6 +40,11 @@ func main() {
 		// TODO(me): consider using os.Exit(2) specifically for cobra flag
 		// parse errors once cobra exposes a way to distinguish them from
 		// runtime errors — for now exit(1) is the safe, consistent choice.
+		//
+		// Personal note: printing the program name alongside the error makes
+		// it easier to identify the source when multiple tools are chained
+		// together in a shell script (e.g. k8sgpt | tee output.log).
+		fmt.Fprintf(os.Stderr, "(%s exited with error)\n", os.Args[0])
 		os.Exit(1)
 	}
 }
