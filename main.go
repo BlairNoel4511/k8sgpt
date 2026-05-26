@@ -29,6 +29,8 @@ func main() {
 		// Note: cobra already prints most errors itself, but we print here
 		// as a safety net for any errors it doesn't handle.
 		fmt.Fprintln(os.Stderr, "Error:", err)
-		os.Exit(1)
+		// Use exit code 2 to distinguish command errors from other failures
+		// (exit code 1 is typically reserved for general errors).
+		os.Exit(2)
 	}
 }
